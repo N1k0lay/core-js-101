@@ -454,6 +454,8 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
+  /* eslint-disable max-len */
+  /* eslint-disable no-shadow */
   return Array.from({ length: n }, (_, i) => Array.from({ length: n }, (_, j) => (i === j ? 1 : 0)));
 }
 
