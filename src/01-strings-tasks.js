@@ -6,7 +6,7 @@
  ******************************************************************************************* */
 
 
-const {type} = require("mocha/lib/utils");
+const { type } = require('mocha/lib/utils');
 
 /**
  * Returns the result of concatenation of two strings.
@@ -54,7 +54,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}!`
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -144,7 +144,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-  return str.substring(1, str.length - 1)
+  return str.substring(1, str.length - 1);
 }
 
 
@@ -178,7 +178,7 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  return str.split(';')
+  return str.split(';');
 }
 
 /**
@@ -208,15 +208,15 @@ function getRectangleString(width, height) {
   let str = '';
   for (let h = 0; h < height; h++) {
     for (let w = 0; w < width; w++) {
-      if(h === 0 && w === 0) str += '┌';
-      if(h === 0 && w === width-1) str += '┐'
-      if(h === height-1 && w === 0) str += '└';
-      if(h === height-1 && w === width-1) str += '┘';
-      if(h === 0 && w > 0 && w < width-1) str += '─';
-      if(h === height-1 && w > 0 && w < width-1) str += '─';
-      if((h > 0 && h < height -1) && (w === 0 || w === width-1)) str += '│';
-      if(w === width-1) str += '\n';
-      if(h !== 0 && h!== height-1 && w!==0 && w!==width-1) str += ' '
+      if (h === 0 && w === 0) str += '┌';
+      if (h === 0 && w === width - 1) str += '┐';
+      if (h === height - 1 && w === 0) str += '└';
+      if (h === height - 1 && w === width - 1) str += '┘';
+      if (h === 0 && w > 0 && w < width - 1) str += '─';
+      if (h === height - 1 && w > 0 && w < width - 1) str += '─';
+      if ((h > 0 && h < height - 1) && (w === 0 || w === width - 1)) str += '│';
+      if (w === width - 1) str += '\n';
+      if (h !== 0 && h !== height - 1 && w !== 0 && w !== width - 1) str += ' ';
     }
   }
   return str;
@@ -240,8 +240,7 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  return str.replace(/[a-z]/gi, letter => String.fromCharCode(letter.charCodeAt(0) + (letter.toLowerCase() <= 'm' ? 13 : -13)));
-
+  return str.replace(/[a-z]/gi, (letter) => String.fromCharCode(letter.charCodeAt(0) + (letter.toLowerCase() <= 'm' ? 13 : -13)));
 }
 
 /**
@@ -258,9 +257,9 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  if(value && !Array.isArray(value)) {
-      if(typeof value === 'string') return true;
-      if(typeof value.toString() === 'string') return true;
+  if (value && !Array.isArray(value)) {
+    if (typeof value === 'string') return true;
+    if (typeof value.toString() === 'string') return true;
   }
   return false;
 }
@@ -291,10 +290,10 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  const cards = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
-      'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
-      'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
-      'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
+  const cards = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
+    'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
+    'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
+    'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
   return cards.indexOf(value);
 }
 
