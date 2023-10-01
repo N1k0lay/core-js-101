@@ -4,10 +4,6 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String   *
  *                                                                                           *
  ******************************************************************************************* */
-
-
-const { type } = require('mocha/lib/utils');
-
 /**
  * Returns the result of concatenation of two strings.
  *
@@ -206,6 +202,7 @@ function extractEmails(str) {
  */
 function getRectangleString(width, height) {
   let str = '';
+  /* eslint-disable no-plusplus */
   for (let h = 0; h < height; h++) {
     for (let w = 0; w < width; w++) {
       if (h === 0 && w === 0) str += '┌';
