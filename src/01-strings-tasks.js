@@ -202,9 +202,8 @@ function extractEmails(str) {
  */
 function getRectangleString(width, height) {
   let str = '';
-  /* eslint-disable no-plusplus */
-  for (let h = 0; h < height; h++) {
-    for (let w = 0; w < width; w++) {
+  for (let h = 0; h < height; h += 1) {
+    for (let w = 0; w < width; w += 1) {
       if (h === 0 && w === 0) str += '┌';
       if (h === 0 && w === width - 1) str += '┐';
       if (h === height - 1 && w === 0) str += '└';

@@ -428,7 +428,8 @@ function sortCitiesArray(arr) {
   return arr.sort((a, b) => {
     if (a.country < b.country) {
       return -1;
-    } if (a.country > b.country) {
+    }
+    if (a.country > b.country) {
       return 1;
     }
     return a.city.localeCompare(b.city);
@@ -454,9 +455,9 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
-  /* eslint-disable max-len */
-  /* eslint-disable no-shadow */
-  return Array.from({ length: n }, (_, i) => Array.from({ length: n }, (_, j) => (i === j ? 1 : 0)));
+  return Array.from({ length: n },
+    (_, i) => Array.from({ length: n },
+      (v, j) => (i === j ? 1 : 0)));
 }
 
 /**
@@ -523,7 +524,9 @@ function distinct(arr) {
  */
 function group(array, keySelector, valueSelector) {
   const map = new Map();
-  array.map((item) => (!map.has(keySelector(item)) ? map.set(keySelector(item), [valueSelector(item)]) : map.set(keySelector(item), [...map.get(keySelector(item)), valueSelector(item)])));
+  array.map((item) => (!map.has(keySelector(item))
+    ? map.set(keySelector(item), [valueSelector(item)])
+    : map.set(keySelector(item), [...map.get(keySelector(item)), valueSelector(item)])));
   return map;
 }
 

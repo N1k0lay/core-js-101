@@ -86,8 +86,8 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  return (b * -1) / a;
 }
 
 
@@ -110,8 +110,10 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  /* eslint-disable max-len */
-  return Math.acos((x1 * x2 + y1 * y2) / ((Math.sqrt(x1 * x1 + y1 * y1)) * (Math.sqrt(x2 * x2 + y2 * y2))));
+  const x = Math.acos((x1 * x2 + y1 * y2));
+  const y = Math.sqrt(x1 * x1 + y1 * y1);
+  const z = Math.sqrt(x2 * x2 + y2 * y2);
+  return x / (y * z);
 }
 
 /**
@@ -227,8 +229,7 @@ function isPrime(n) {
 function toNumber(value, def) {
   if (value === null) return def;
   const convertNum = Number(value);
-  /* eslint-disable no-restricted-globals */
-  if (isNaN(convertNum)) return def;
+  if (Number.isNaN(convertNum)) return def;
   return value;
 }
 
